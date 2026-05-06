@@ -9,6 +9,13 @@ import { StatusBadge } from "@/app/projects/components/StatusBadge";
 export default function ClientsPage() {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
+
+  // Debounce search input
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearch(search), 300);
+    return () => clearTimeout(timer);
+  }, [search]);
+
   const { data = [], isLoading } = useClients(debouncedSearch);
 
   return (

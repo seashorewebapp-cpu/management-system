@@ -1,11 +1,19 @@
 "use client";
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Sidebar } from './Sidebar';
 import { Header } from './Header';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isAuthPage = pathname?.startsWith('/auth');
+
+  if (isAuthPage) {
+    return <div className="w-full">{children}</div>;
+  }
 
   return (
     <div className="flex min-h-screen w-full bg-surface-container-lowest">
