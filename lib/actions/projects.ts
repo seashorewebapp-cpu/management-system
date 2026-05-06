@@ -165,3 +165,16 @@ export async function getProjectLogs(projectId: string) {
     .where(eq(dailyLogs.projectId, projectId))
     .orderBy(sql`${dailyLogs.logDate} DESC`);
 }
+
+export async function getProjectPayments(projectId: string) {
+  return db
+    .select({
+      id: payments.id,
+      amount: payments.amount,
+      paymentDate: payments.paymentDate,
+      notes: payments.notes,
+    })
+    .from(payments)
+    .where(eq(payments.projectId, projectId))
+    .orderBy(sql`${payments.paymentDate} DESC`);
+}

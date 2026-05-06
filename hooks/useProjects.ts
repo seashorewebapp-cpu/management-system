@@ -6,6 +6,7 @@ import {
   getProjectById,
   getProjectLogs,
   createProject,
+  getProjectPayments,
 } from "@/lib/actions/projects";
 
 // ---------- query keys ----------
@@ -16,6 +17,7 @@ export const projectKeys = {
     [...projectKeys.all, "list", { page, pageSize }] as const,
   detail: (id: string) => [...projectKeys.all, "detail", id] as const,
   logs: (id: string) => [...projectKeys.all, "logs", id] as const,
+  payments: (id: string) => [...projectKeys.all, "payments", id] as const,
 };
 
 // ---------- list ----------
@@ -41,6 +43,14 @@ export function useProjectLogs(projectId: string) {
   return useQuery({
     queryKey: projectKeys.logs(projectId),
     queryFn: () => getProjectLogs(projectId),
+    enabled: !!projectId,
+  });
+}
+
+export function useProjectPayments(projectId: string) {
+  return useQuery({
+    queryKey: projectKeys.payments(projectId),
+    queryFn: () => getProjectPayments(projectId),
     enabled: !!projectId,
   });
 }

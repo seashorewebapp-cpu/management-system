@@ -5,10 +5,22 @@ export { useLogin, useRegister, useLogout } from "./useAuth";
 export { useSession } from "./useSession";
 
 // Projects
-export { useProjects, useProject, useProjectLogs, useCreateProject, projectKeys } from "./useProjects";
+export {
+  useProjects,
+  useProject,
+  useProjectLogs,
+  useProjectPayments,
+  useCreateProject,
+  projectKeys,
+} from "./useProjects";
 
 // Worklogs, Status & Payments
-export { useCreateDailyLog, useUpdateStatus, useAddPayment } from "./useWorklog";
+export {
+  useCreateDailyLog,
+  useUpdateStatus,
+  useAddPayment,
+  useUpdatePayment,
+} from "./useWorklog";
 
 // Dashboard
 export { useDashboardStats, useOutstandingProjects, useActiveProjectsDashboard } from "./useDashboard";

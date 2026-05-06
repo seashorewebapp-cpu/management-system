@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createDailyLog, updateStatus, addPayments } from "@/lib/actions/worklog";
+import { createDailyLog, updateStatus, addPayments, updatePayment } from "@/lib/actions/worklog";
 import { projectKeys } from "./useProjects";
 
 // ---------- daily log ----------
@@ -56,6 +56,25 @@ export function useAddPayment(projectId: string) {
         queryKey: projectKeys.detail(projectId),
       });
       queryClient.invalidateQueries({ queryKey: projectKeys.all });
+      queryClient.invalidateQueries({ queryKey: projectKeys.payments(projectId) });
+    },
+  });
+}
+
+export function useUpdatePayment(projectId: string) {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (formData: FormData) => {
+      return updatePayment(formData);
+    },
+    onSuccess: () => {
+      // Refresh the project detail for updated financial figures
+      queryClient.invalidateQueries({
+        queryKey: projectKeys.detail(projectId),
+      });
+      queryClient.invalidateQueries({ queryKey: projectKeys.all });
+      queryClient.invalidateQueries({ queryKey: projectKeys.payments(projectId) });
     },
   });
 }

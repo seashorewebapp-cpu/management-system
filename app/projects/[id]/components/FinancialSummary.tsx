@@ -14,7 +14,7 @@ export function FinancialSummary({ project }: { project: ProjectFinancials }) {
   const percentagePaid = budget > 0 ? (totalPaid / budget) * 100 : 0;
 
   return (
-    <div className="bg-white border border-outline-variant p-6 h-full flex flex-col">
+    <div className="bg-white border border-outline-variant p-6 flex flex-col">
       <div className="flex items-center gap-3 mb-6">
         <div className="p-2 bg-primary-navy/10 rounded-full text-primary-navy">
           <DollarSign className="w-5 h-5" />

@@ -7,6 +7,7 @@ import { useProject, useProjectLogs } from "@/hooks";
 import { StatusBadge } from "../components/StatusBadge";
 import { FinancialSummary } from "./components/FinancialSummary";
 import { LogTimeline } from "./components/LogTimeline";
+import { PaymentHistory } from "./components/PaymentHistory";
 import { ProjectDetailActions } from "./components/ProjectDetailActions";
 
 export default function ProjectDetailPage({
@@ -106,11 +107,16 @@ export default function ProjectDetailPage({
       </div>
 
       {/* Log + Financials */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start flex-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="h-[600px]">
         <LogTimeline
           logs={logs.map((l) => ({ ...l, description: l.description ?? "" }))}
         />
-        <FinancialSummary project={project} />
+        </div>
+        <div className="flex flex-col gap-6 h-[600px]">
+          <FinancialSummary project={project} />
+          <PaymentHistory projectId={id} />
+        </div>
       </div>
     </div>
   );

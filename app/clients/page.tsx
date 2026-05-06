@@ -2,37 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { Search, Users, Building2, Phone, Mail, MapPin } from "lucide-react";
-import { getClientsWithProjects } from "@/lib/actions/clients";
+import { useClients } from "@/hooks/useClients";
 import Link from "next/link";
 import { StatusBadge } from "@/app/projects/components/StatusBadge";
 
 export default function ClientsPage() {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
-  const [data, setData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // Debounce search input
-  useEffect(() => {
-    const timer = setTimeout(() => setDebouncedSearch(search), 300);
-    return () => clearTimeout(timer);
-  }, [search]);
-
-  // Fetch data
-  useEffect(() => {
-    async function load() {
-      setLoading(true);
-      try {
-        const res = await getClientsWithProjects(debouncedSearch);
-        setData(res);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    load();
-  }, [debouncedSearch]);
+  const { data = [], isLoading } = useClients(debouncedSearch);
 
   return (
     <div className="flex flex-col h-full max-w-7xl mx-auto gap-6">
@@ -56,7 +33,7 @@ export default function ClientsPage() {
 
       {/* Main content */}
       <div className="flex-1 min-h-0">
-        {loading ? (
+        {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="bg-white border border-outline-variant rounded p-5 h-64 animate-pulse" />

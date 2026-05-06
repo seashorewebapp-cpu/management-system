@@ -19,15 +19,16 @@ export function LogTimeline({ logs }: { logs: LogEntry[] }) {
   }
 
   return (
-    <div className="bg-white border border-outline-variant p-6 h-full">
-      <div className="flex items-center gap-3 mb-8">
+    <div className="bg-white border border-outline-variant flex flex-col h-full">
+      <div className="flex items-center gap-3 p-6 pb-4 shrink-0 border-b border-outline-variant">
         <div className="p-2 bg-primary-navy/10 rounded-full text-primary-navy">
           <ClipboardList className="w-5 h-5" />
         </div>
         <h3 className="text-xl font-serif text-primary-navy">Daily Work Log</h3>
       </div>
 
-      <div className="relative border-l-2 border-surface-container ml-3 space-y-8">
+      <div className="overflow-y-auto flex-1 p-6">
+        <div className="relative border-l-2 border-surface-container ml-3 space-y-8">
         {logs.map((log) => (
           <div key={log.id} className="relative pl-6">
             <div className="absolute w-3 h-3 bg-primary-navy rounded-full -left-[7px] top-1.5 ring-4 ring-white" />
@@ -42,6 +43,7 @@ export function LogTimeline({ logs }: { logs: LogEntry[] }) {
             </p>
           </div>
         ))}
+        </div>
       </div>
     </div>
   );

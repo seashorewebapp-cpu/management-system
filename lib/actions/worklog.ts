@@ -86,3 +86,23 @@ export async function addPayments(formData: FormData) {
 
   revalidatePath(`/projects/${projectId}`);
 }
+
+export async function updatePayment(formData: FormData) {
+  const paymentId = formData.get("paymentId") as string;
+  const projectId = formData.get("projectId") as string;
+  const amount = formData.get("amount") as string;
+  const note = formData.get("note") as string;
+
+  if (!paymentId || !projectId || !amount) {
+    throw new Error("Missing required fields");
+  }
+
+  await db.update(payments)
+    .set({
+      amount,
+      notes: note,
+    })
+    .where(eq(payments.id, paymentId));
+
+  revalidatePath(`/projects/${projectId}`);
+}
