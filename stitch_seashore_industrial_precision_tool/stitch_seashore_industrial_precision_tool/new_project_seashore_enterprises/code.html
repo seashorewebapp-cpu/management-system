@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Project</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=IBM+Plex+Mono:wght@500&amp;family=IBM+Plex+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#723611",
+                    "inverse-primary": "#bbc3ff",
+                    "on-surface-variant": "#454651",
+                    "secondary-container": "#b8c0ff",
+                    "surface-bright": "#fbf8ff",
+                    "tertiary-fixed": "#ffdbca",
+                    "on-primary-container": "#8a94e1",
+                    "secondary-fixed-dim": "#bcc3ff",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e4e1e8",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#d6865b",
+                    "secondary-fixed": "#dfe0ff",
+                    "inverse-on-surface": "#f2eff6",
+                    "on-secondary-fixed": "#0c154c",
+                    "tertiary": "#361200",
+                    "on-surface": "#1b1b20",
+                    "surface-container": "#efedf4",
+                    "on-secondary-fixed-variant": "#3b4279",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#eae7ee",
+                    "surface-dim": "#dbd9e0",
+                    "primary-fixed-dim": "#bbc3ff",
+                    "on-tertiary-fixed": "#341100",
+                    "primary-fixed": "#dfe0ff",
+                    "surface-tint": "#4e59a1",
+                    "inverse-surface": "#303035",
+                    "outline-variant": "#c6c5d2",
+                    "primary": "#04115c",
+                    "primary-container": "#1f2a71",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1b1b20",
+                    "on-secondary-container": "#454c84",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e4e1e8",
+                    "on-primary-fixed": "#030f5b",
+                    "on-primary-fixed-variant": "#364087",
+                    "tertiary-fixed-dim": "#ffb690",
+                    "background": "#fbf8ff",
+                    "tertiary-container": "#572200",
+                    "secondary": "#525a93",
+                    "outline": "#767682",
+                    "surface": "#fbf8ff",
+                    "surface-container-low": "#f5f2f9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "stack-lg": "32px",
+                    "unit": "4px",
+                    "margin": "24px",
+                    "stack-md": "16px",
+                    "stack-sm": "8px"
+            },
+            "fontFamily": {
+                    "h3": ["DM Serif Display"],
+                    "label-caps": ["IBM Plex Sans"],
+                    "body-sm": ["IBM Plex Sans"],
+                    "h2": ["DM Serif Display"],
+                    "h1": ["DM Serif Display"],
+                    "data-mono": ["IBM Plex Mono"],
+                    "body-lg": ["IBM Plex Sans"]
+            },
+            "fontSize": {
+                    "h3": ["20px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "h2": ["24px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "h1": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "data-mono": ["14px", {"lineHeight": "18px", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low text-on-surface min-h-screen flex items-center justify-center p-margin">
+<main class="w-full max-w-[720px] bg-surface-container-lowest border border-outline-variant rounded p-stack-lg">
+<header class="flex items-center gap-stack-sm mb-stack-lg border-b border-outline-variant pb-stack-sm">
+<a class="text-on-surface-variant hover:text-primary-container transition-colors flex items-center" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<h1 class="font-h2 text-h2 text-on-surface">Create New Project</h1>
+</header>
+<form>
+<section class="mb-stack-lg">
+<h2 class="font-h3 text-h3 text-on-surface border-b border-outline-variant pb-unit mb-stack-md">Client Information</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-unit">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="client_name">CLIENT NAME</label>
+<input class="h-10 px-3 bg-surface-container-lowest border border-outline-variant text-on-surface font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors rounded" id="client_name" name="client_name" placeholder="Enter client name" type="text"/>
+</div>
+<div class="flex flex-col gap-unit">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="company">COMPANY</label>
+<input class="h-10 px-3 bg-surface-container-lowest border border-outline-variant text-on-surface font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors rounded" id="company" name="company" placeholder="Enter company name" type="text"/>
+</div>
+<div class="flex flex-col gap-unit">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="phone">PHONE</label>
+<input class="h-10 px-3 bg-surface-container-lowest border border-outline-variant text-on-surface font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors rounded" id="phone" name="phone" placeholder="(555) 000-0000" type="tel"/>
+</div>
+<div class="flex flex-col gap-unit">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="email">EMAIL</label>
+<input class="h-10 px-3 bg-surface-container-lowest border border-outline-variant text-on-surface font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors rounded" id="email" name="email" placeholder="client@example.com" type="email"/>
+</div>
+<div class="flex flex-col gap-unit md:col-span-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="location">LOCATION</label>
+<input class="h-10 px-3 bg-surface-container-lowest border border-outline-variant text-on-surface font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors rounded" id="location" name="location" placeholder="Site address or region" type="text"/>
+</div>
+</div>
+</section>
+<section class="mb-stack-lg">
+<h2 class="font-h3 text-h3 text-on-surface border-b border-outline-variant pb-unit mb-stack-md">Financial Details</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-end">
+<div class="flex flex-col gap-unit">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="budget">BUDGET</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 font-data-mono text-data-mono text-on-surface-variant">$</span>
+<input class="w-full h-10 pl-8 pr-3 bg-surface-container-lowest border border-outline-variant text-on-surface font-data-mono text-data-mono focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors rounded" id="budget" name="budget" placeholder="0.00" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-unit">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="advance">ADVANCE</label>
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 font-data-mono text-data-mono text-on-surface-variant">$</span>
+<input class="w-full h-10 pl-8 pr-3 bg-surface-container-lowest border border-outline-variant text-on-surface font-data-mono text-data-mono focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors rounded" id="advance" name="advance" placeholder="0.00" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-unit md:col-span-2 mt-stack-sm p-stack-md bg-surface-container border border-outline-variant rounded">
+<label class="font-label-caps text-label-caps text-on-surface-variant">REMAINING PAYMENT</label>
+<div class="font-data-mono text-data-mono text-primary-container pt-unit">
+                            $ 0.00
+                        </div>
+</div>
+</div>
+</section>
+<div class="flex justify-end gap-stack-md pt-stack-md border-t border-outline-variant">
+<button class="h-10 px-6 font-body-sm text-body-sm font-semibold text-primary-container border border-outline-variant rounded hover:bg-surface-container-highest transition-colors" type="button">Cancel</button>
+<button class="h-10 px-6 font-body-sm text-body-sm font-semibold text-on-primary bg-primary-container rounded hover:bg-on-secondary-fixed transition-colors" type="submit">Create Project</button>
+</div>
+</form>
+</main>
+</body></html>
